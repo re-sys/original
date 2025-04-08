@@ -1,0 +1,531 @@
+******************************************************************************
+            TI ARM Clang Linker PC v3.2.2                      
+******************************************************************************
+>> Linked Wed Jul 24 08:49:03 2024
+
+OUTPUT FILE NAME:   <empty_LP_MSPM0G3507_nortos_ticlang.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 000010bd
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00020000  000012d8  0001ed28  R  X
+  SRAM                  20200000   00008000  00000529  00007ad7  RW X
+  BCR_CONFIG            41c00000   00000080  00000000  00000080  R   
+  BSL_CONFIG            41c00100   00000080  00000000  00000080  R   
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000012d8   000012d8    r-x
+  00000000    00000000    000000c0   000000c0    r-- .intvecs
+  000000c0    000000c0    00001170   00001170    r-x .text
+  00001230    00001230    00000048   00000048    r-- .rodata
+  00001278    00001278    00000060   00000060    r-- .cinit
+20200000    20200000    0000032b   00000000    rw-
+  20200000    20200000    000001a6   00000000    rw- .bss
+  202001a8    202001a8    00000183   00000000    rw- .data
+20207e00    20207e00    00000200   00000000    rw-
+  20207e00    20207e00    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    000000c0     
+                  00000000    000000c0     startup_mspm0g350x_ticlang.o (.intvecs)
+
+.text      0    000000c0    00001170     
+                  000000c0    00000284     libc.a : _printfi.c.obj (.text:__TI_printfi_minimal)
+                  00000344    000000e8     driverlib.a : dl_timer.o (.text.DL_Timer_initTimerMode)
+                  0000042c    000000d8     libclang_rt.builtins.a : addsf3.S.obj (.text)
+                  00000504    000000c4     driverlib.a : dl_timer.o (.text.DL_Timer_initPWMMode)
+                  000005c8    000000c4     board.o (.text.fputs)
+                  0000068c    0000009a     libc.a : memcpy16.S.obj (.text:memcpy)
+                  00000726    00000002     startup_mspm0g350x_ticlang.o (.text.Default_Handler)
+                  00000728    00000098     ti_msp_dl_config.o (.text.SYSCFG_DL_GPIO_init)
+                  000007c0    0000008c     libclang_rt.builtins.a : mulsf3.S.obj (.text.__mulsf3)
+                  0000084c    00000088     encoder.o (.text.GROUP1_IRQHandler)
+                  000008d4    00000084     motor.o (.text.Velocity_A)
+                  00000958    00000084     motor.o (.text.Velocity_B)
+                  000009dc    00000080     driverlib.a : dl_timer.o (.text.DL_TimerA_initPWMMode)
+                  00000a5c    0000007c     ti_msp_dl_config.o (.text.SYSCFG_DL_PWM_0_init)
+                  00000ad8    00000078     libc.a : copy_decompress_lzss.c.obj (.text:decompress:lzss)
+                  00000b50    0000006c     ti_msp_dl_config.o (.text.SYSCFG_DL_UART_0_init)
+                  00000bbc    00000068     empty.o (.text.TIMA0_IRQHandler)
+                  00000c24    00000064     empty.o (.text.main)
+                  00000c88    00000062     libc.a : memset16.S.obj (.text:memset)
+                  00000cea    00000002     libclang_rt.builtins.a : aeabi_div0.c.obj (.text.__aeabi_idiv0)
+                  00000cec    0000005c     board.o (.text.UART0_IRQHandler)
+                  00000d48    0000005c     libc.a : printf.c.obj (.text.printf)
+                  00000da4    00000058     motor.o (.text.Set_PWM)
+                  00000dfc    00000048     driverlib.a : dl_uart.o (.text.DL_UART_init)
+                  00000e44    00000048     ti_msp_dl_config.o (.text.SYSCFG_DL_initPower)
+                  00000e8c    00000040     libclang_rt.builtins.a : aeabi_uidivmod.S.obj (.text.__aeabi_uidivmod)
+                  00000ecc    0000003c     ti_msp_dl_config.o (.text.SYSCFG_DL_SYSCTL_init)
+                  00000f08    0000003c     libclang_rt.builtins.a : floatsisf.S.obj (.text.__floatsisf)
+                  00000f44    0000003c     libc.a : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit)
+                  00000f80    0000003a     libclang_rt.builtins.a : muldsi3.S.obj (.text.__muldsi3)
+                  00000fba    00000002     libc.a : _lock.c.obj (.text._nop)
+                  00000fbc    00000038     ti_msp_dl_config.o (.text.SYSCFG_DL_TIMER_0_init)
+                  00000ff4    00000038     libclang_rt.builtins.a : fixsfsi.S.obj (.text.__fixsfsi)
+                  0000102c    00000034     ti_msp_dl_config.o (.text.SYSCFG_DL_init)
+                  00001060    00000030     led.o (.text.LED_Flash)
+                  00001090    0000002c     board.o (.text.fputc)
+                  000010bc    00000028     libc.a : boot_cortex_m.c.obj (.text:_c_int00_noargs)
+                  000010e4    00000022            : memccpy.c.obj (.text.memccpy)
+                  00001106    00000002     --HOLE-- [fill = 0]
+                  00001108    00000020     driverlib.a : dl_uart.o (.text.DL_UART_transmitDataBlocking)
+                  00001128    0000001c                 : dl_timer.o (.text.DL_Timer_setCaptCompUpdateMethod)
+                  00001144    0000001c                 : dl_timer.o (.text.DL_Timer_setClockConfig)
+                  00001160    0000001c     ti_msp_dl_config.o (.text.SYSCFG_DL_SYSTICK_init)
+                  0000117c    00000018     driverlib.a : dl_timer.o (.text.DL_Timer_setCaptureCompareOutCtl)
+                  00001194    00000016     libc.a : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset)
+                  000011aa    00000012     driverlib.a : dl_uart.o (.text.DL_UART_setClockConfig)
+                  000011bc    00000012     libc.a : copy_decompress_none.c.obj (.text:decompress:none)
+                  000011ce    00000002     --HOLE-- [fill = 0]
+                  000011d0    00000010     driverlib.a : dl_timer.o (.text.DL_Timer_setCaptureCompareValue)
+                  000011e0    0000000e     libclang_rt.builtins.a : aeabi_memset.S.obj (.text.__aeabi_memset)
+                  000011ee    0000000e     libc.a : _printfi.c.obj (.text.strlen)
+                  000011fc    0000000a     driverlib.a : dl_common.o (.text.DL_Common_delayCycles)
+                  00001206    00000002     --HOLE-- [fill = 0]
+                  00001208    00000008     libclang_rt.builtins.a : aeabi_memcpy.S.obj (.text.__aeabi_memcpy)
+                  00001210    00000008     libc.a : printf.c.obj (.text._outc)
+                  00001218    00000008            : printf.c.obj (.text._outs)
+                  00001220    00000004     startup_mspm0g350x_ticlang.o (.text.Reset_Handler)
+                  00001224    00000004     libc.a : pre_init.c.obj (.text._system_pre_init)
+                  00001228    00000004            : exit.c.obj (.text:abort)
+                  0000122c    00000004     --HOLE-- [fill = 0]
+
+.cinit     0    00001278    00000060     
+                  00001278    00000035     (.cinit..data.load) [load image, compression = lzss]
+                  000012ad    00000003     --HOLE-- [fill = 0]
+                  000012b0    0000000c     (__TI_handler_table)
+                  000012bc    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  000012c4    00000010     (__TI_cinit_table)
+                  000012d4    00000004     --HOLE-- [fill = 0]
+
+.rodata    0    00001230    00000048     
+                  00001230    00000014     ti_msp_dl_config.o (.rodata.gTIMER_0TimerConfig)
+                  00001244    00000011     libc.a : _printfi.c.obj (.rodata.str1.44690500295887128011)
+                  00001255    00000001     --HOLE-- [fill = 0]
+                  00001256    0000000a     ti_msp_dl_config.o (.rodata.gUART_0Config)
+                  00001260    00000008     ti_msp_dl_config.o (.rodata.gPWM_0Config)
+                  00001268    00000008     empty.o (.rodata.str1.162906114796922795351)
+                  00001270    00000003     ti_msp_dl_config.o (.rodata.gPWM_0ClockConfig)
+                  00001273    00000003     ti_msp_dl_config.o (.rodata.gTIMER_0ClockConfig)
+                  00001276    00000002     ti_msp_dl_config.o (.rodata.gUART_0ClockConfig)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+.bss       0    20200000    000001a6     UNINITIALIZED
+                  20200000    000000bc     (.common:gPWM_0Backup)
+                  202000bc    000000bc     (.common:gTIMER_0Backup)
+                  20200178    00000004     motor.o (.bss.Velocity_A.ControlVelocityA)
+                  2020017c    00000004     motor.o (.bss.Velocity_A.Last_biasA)
+                  20200180    00000004     motor.o (.bss.Velocity_B.ControlVelocityB)
+                  20200184    00000004     motor.o (.bss.Velocity_B.Last_biasB)
+                  20200188    00000004     (.common:Get_Encoder_countA)
+                  2020018c    00000004     (.common:Get_Encoder_countB)
+                  20200190    00000004     (.common:PWMA)
+                  20200194    00000004     (.common:PWMB)
+                  20200198    00000004     (.common:encoderA_cnt)
+                  2020019c    00000004     (.common:encoderB_cnt)
+                  202001a0    00000004     (.common:gpio_interrup)
+                  202001a4    00000002     led.o (.bss.LED_Flash.temp)
+
+.data      0    202001a8    00000183     UNINITIALIZED
+                  202001a8    000000f0     libc.a : defs.c.obj (.data._ftable)
+                  20200298    00000080     board.o (.data.recv0_buff)
+                  20200318    00000004     motor.o (.data.Velcity_Ki)
+                  2020031c    00000004     motor.o (.data.Velcity_Kp)
+                  20200320    00000004     libc.a : _lock.c.obj (.data._lock)
+                  20200324    00000004            : _lock.c.obj (.data._unlock)
+                  20200328    00000002     board.o (.data.recv0_length)
+                  2020032a    00000001     board.o (.data.recv0_flag)
+
+.stack     0    20207e00    00000200     UNINITIALIZED
+                  20207e00    00000004     libc.a : boot_cortex_m.c.obj (.stack)
+                  20207e04    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20200000    00000000     UNINITIALIZED
+
+__llvm_prf_bits 
+*          0    20200000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       ti_msp_dl_config.o             652    46        376    
+       empty.o                        204    8         24     
+       startup_mspm0g350x_ticlang.o   6      192       0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         862    246       400    
+                                                              
+    .\Hardware\
+       board.o                        332    0         131    
+       motor.o                        352    0         24     
+       encoder.o                      136    0         4      
+       led.o                          48     0         2      
+    +--+------------------------------+------+---------+---------+
+       Total:                         868    0         161    
+                                                              
+    C:/ti/mspm0_sdk_2_01_00_03/source/ti/driverlib/lib/ticlang/m0p/mspm0g1x0x_g3x0x/driverlib.a
+       dl_timer.o                     652    0         0      
+       dl_uart.o                      122    0         0      
+       dl_common.o                    10     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         784    0         0      
+                                                              
+    C:\ti\ccs1271\ccs\tools\compiler\ti-cgt-armllvm_3.2.2.LTS\lib\armv6m-ti-none-eabi/c/libc.a
+       _printfi.c.obj                 658    17        0      
+       defs.c.obj                     0      0         240    
+       memcpy16.S.obj                 154    0         0      
+       copy_decompress_lzss.c.obj     120    0         0      
+       printf.c.obj                   108    0         0      
+       memset16.S.obj                 98     0         0      
+       autoinit.c.obj                 60     0         0      
+       boot_cortex_m.c.obj            40     0         0      
+       memccpy.c.obj                  34     0         0      
+       copy_zero_init.c.obj           22     0         0      
+       copy_decompress_none.c.obj     18     0         0      
+       _lock.c.obj                    2      0         8      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1322   17        248    
+                                                              
+    C:\ti\ccs1271\ccs\tools\compiler\ti-cgt-armllvm_3.2.2.LTS\lib\clang/15.0.7/lib/armv6m-ti-none-eabi/libclang_rt.builtins.a
+       addsf3.S.obj                   216    0         0      
+       mulsf3.S.obj                   140    0         0      
+       aeabi_uidivmod.S.obj           64     0         0      
+       floatsisf.S.obj                60     0         0      
+       muldsi3.S.obj                  58     0         0      
+       fixsfsi.S.obj                  56     0         0      
+       aeabi_memset.S.obj             14     0         0      
+       aeabi_memcpy.S.obj             8      0         0      
+       aeabi_div0.c.obj               2      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         618    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      89        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   4454   352       1321   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000012c4 records: 2, size/record: 8, table size: 16
+	.data: load addr=00001278, load size=00000035 bytes, run addr=202001a8, run size=00000183 bytes, compression=lzss
+	.bss: load addr=000012bc, load size=00000008 bytes, run addr=20200000, run size=000001a6 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000012b0 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                            
+-------   ----                            
+00000727  ADC0_IRQHandler                 
+00000727  ADC1_IRQHandler                 
+00000727  AES_IRQHandler                  
+00001228  C$$EXIT                         
+00000727  CANFD0_IRQHandler               
+00000727  DAC0_IRQHandler                 
+000011fd  DL_Common_delayCycles           
+000009dd  DL_TimerA_initPWMMode           
+00000505  DL_Timer_initPWMMode            
+00000345  DL_Timer_initTimerMode          
+00001129  DL_Timer_setCaptCompUpdateMethod
+0000117d  DL_Timer_setCaptureCompareOutCtl
+000011d1  DL_Timer_setCaptureCompareValue 
+00001145  DL_Timer_setClockConfig         
+00000dfd  DL_UART_init                    
+000011ab  DL_UART_setClockConfig          
+00001109  DL_UART_transmitDataBlocking    
+00000727  DMA_IRQHandler                  
+00000727  Default_Handler                 
+00000727  GROUP0_IRQHandler               
+0000084d  GROUP1_IRQHandler               
+20200188  Get_Encoder_countA              
+2020018c  Get_Encoder_countB              
+00000727  HardFault_Handler               
+00000727  I2C0_IRQHandler                 
+00000727  I2C1_IRQHandler                 
+00001061  LED_Flash                       
+00000727  NMI_Handler                     
+20200190  PWMA                            
+20200194  PWMB                            
+00000727  PendSV_Handler                  
+00000727  RTC_IRQHandler                  
+00001221  Reset_Handler                   
+00000727  SPI0_IRQHandler                 
+00000727  SPI1_IRQHandler                 
+00000727  SVC_Handler                     
+00000729  SYSCFG_DL_GPIO_init             
+00000a5d  SYSCFG_DL_PWM_0_init            
+00000ecd  SYSCFG_DL_SYSCTL_init           
+00001161  SYSCFG_DL_SYSTICK_init          
+00000fbd  SYSCFG_DL_TIMER_0_init          
+00000b51  SYSCFG_DL_UART_0_init           
+0000102d  SYSCFG_DL_init                  
+00000e45  SYSCFG_DL_initPower             
+00000da5  Set_PWM                         
+00000727  SysTick_Handler                 
+00000bbd  TIMA0_IRQHandler                
+00000727  TIMA1_IRQHandler                
+00000727  TIMG0_IRQHandler                
+00000727  TIMG12_IRQHandler               
+00000727  TIMG6_IRQHandler                
+00000727  TIMG7_IRQHandler                
+00000727  TIMG8_IRQHandler                
+00000ced  UART0_IRQHandler                
+00000727  UART1_IRQHandler                
+00000727  UART2_IRQHandler                
+00000727  UART3_IRQHandler                
+20200318  Velcity_Ki                      
+2020031c  Velcity_Kp                      
+000008d5  Velocity_A                      
+00000959  Velocity_B                      
+20208000  __STACK_END                     
+00000200  __STACK_SIZE                    
+00000000  __TI_ATRegion0_region_sz        
+00000000  __TI_ATRegion0_src_addr         
+00000000  __TI_ATRegion0_trg_addr         
+00000000  __TI_ATRegion1_region_sz        
+00000000  __TI_ATRegion1_src_addr         
+00000000  __TI_ATRegion1_trg_addr         
+00000000  __TI_ATRegion2_region_sz        
+00000000  __TI_ATRegion2_src_addr         
+00000000  __TI_ATRegion2_trg_addr         
+000012c4  __TI_CINIT_Base                 
+000012d4  __TI_CINIT_Limit                
+000012d4  __TI_CINIT_Warm                 
+000012b0  __TI_Handler_Table_Base         
+000012bc  __TI_Handler_Table_Limit        
+00000f45  __TI_auto_init_nobinit_nopinit  
+00000ad9  __TI_decompress_lzss            
+000011bd  __TI_decompress_none            
+ffffffff  __TI_pprof_out_hndl             
+000000c1  __TI_printfi_minimal            
+ffffffff  __TI_prof_data_size             
+ffffffff  __TI_prof_data_start            
+00000000  __TI_static_base__              
+00001195  __TI_zero_init_nomemset         
+00000437  __addsf3                        
+00000ff5  __aeabi_f2iz                    
+00000437  __aeabi_fadd                    
+000007c1  __aeabi_fmul                    
+0000042d  __aeabi_fsub                    
+00000f09  __aeabi_i2f                     
+00000ceb  __aeabi_idiv0                   
+00001209  __aeabi_memcpy                  
+00001209  __aeabi_memcpy4                 
+00001209  __aeabi_memcpy8                 
+000011e1  __aeabi_memset                  
+000011e1  __aeabi_memset4                 
+000011e1  __aeabi_memset8                 
+00000e8d  __aeabi_uidiv                   
+00000e8d  __aeabi_uidivmod                
+ffffffff  __binit__                       
+00000ff5  __fixsfsi                       
+00000f09  __floatsisf                     
+UNDEFED   __mpu_init                      
+00000f81  __muldsi3                       
+000007c1  __mulsf3                        
+20207e00  __stack                         
+20200000  __start___llvm_prf_bits         
+20200000  __start___llvm_prf_cnts         
+20200000  __stop___llvm_prf_bits          
+20200000  __stop___llvm_prf_cnts          
+0000042d  __subsf3                        
+000010bd  _c_int00_noargs                 
+202001a8  _ftable                         
+20200320  _lock                           
+00000fbb  _nop                            
+UNDEFED   _system_post_cinit              
+00001225  _system_pre_init                
+20200324  _unlock                         
+00001229  abort                           
+ffffffff  binit                           
+20200198  encoderA_cnt                    
+2020019c  encoderB_cnt                    
+00001091  fputc                           
+000005c9  fputs                           
+20200000  gPWM_0Backup                    
+202000bc  gTIMER_0Backup                  
+202001a0  gpio_interrup                   
+00000000  interruptVectors                
+00000c25  main                            
+000010e5  memccpy                         
+0000068d  memcpy                          
+00000c89  memset                          
+00000d49  printf                          
+20200298  recv0_buff                      
+2020032a  recv0_flag                      
+20200328  recv0_length                    
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                            
+-------   ----                            
+00000000  __TI_ATRegion0_region_sz        
+00000000  __TI_ATRegion0_src_addr         
+00000000  __TI_ATRegion0_trg_addr         
+00000000  __TI_ATRegion1_region_sz        
+00000000  __TI_ATRegion1_src_addr         
+00000000  __TI_ATRegion1_trg_addr         
+00000000  __TI_ATRegion2_region_sz        
+00000000  __TI_ATRegion2_src_addr         
+00000000  __TI_ATRegion2_trg_addr         
+00000000  __TI_static_base__              
+00000000  interruptVectors                
+000000c1  __TI_printfi_minimal            
+00000200  __STACK_SIZE                    
+00000345  DL_Timer_initTimerMode          
+0000042d  __aeabi_fsub                    
+0000042d  __subsf3                        
+00000437  __addsf3                        
+00000437  __aeabi_fadd                    
+00000505  DL_Timer_initPWMMode            
+000005c9  fputs                           
+0000068d  memcpy                          
+00000727  ADC0_IRQHandler                 
+00000727  ADC1_IRQHandler                 
+00000727  AES_IRQHandler                  
+00000727  CANFD0_IRQHandler               
+00000727  DAC0_IRQHandler                 
+00000727  DMA_IRQHandler                  
+00000727  Default_Handler                 
+00000727  GROUP0_IRQHandler               
+00000727  HardFault_Handler               
+00000727  I2C0_IRQHandler                 
+00000727  I2C1_IRQHandler                 
+00000727  NMI_Handler                     
+00000727  PendSV_Handler                  
+00000727  RTC_IRQHandler                  
+00000727  SPI0_IRQHandler                 
+00000727  SPI1_IRQHandler                 
+00000727  SVC_Handler                     
+00000727  SysTick_Handler                 
+00000727  TIMA1_IRQHandler                
+00000727  TIMG0_IRQHandler                
+00000727  TIMG12_IRQHandler               
+00000727  TIMG6_IRQHandler                
+00000727  TIMG7_IRQHandler                
+00000727  TIMG8_IRQHandler                
+00000727  UART1_IRQHandler                
+00000727  UART2_IRQHandler                
+00000727  UART3_IRQHandler                
+00000729  SYSCFG_DL_GPIO_init             
+000007c1  __aeabi_fmul                    
+000007c1  __mulsf3                        
+0000084d  GROUP1_IRQHandler               
+000008d5  Velocity_A                      
+00000959  Velocity_B                      
+000009dd  DL_TimerA_initPWMMode           
+00000a5d  SYSCFG_DL_PWM_0_init            
+00000ad9  __TI_decompress_lzss            
+00000b51  SYSCFG_DL_UART_0_init           
+00000bbd  TIMA0_IRQHandler                
+00000c25  main                            
+00000c89  memset                          
+00000ceb  __aeabi_idiv0                   
+00000ced  UART0_IRQHandler                
+00000d49  printf                          
+00000da5  Set_PWM                         
+00000dfd  DL_UART_init                    
+00000e45  SYSCFG_DL_initPower             
+00000e8d  __aeabi_uidiv                   
+00000e8d  __aeabi_uidivmod                
+00000ecd  SYSCFG_DL_SYSCTL_init           
+00000f09  __aeabi_i2f                     
+00000f09  __floatsisf                     
+00000f45  __TI_auto_init_nobinit_nopinit  
+00000f81  __muldsi3                       
+00000fbb  _nop                            
+00000fbd  SYSCFG_DL_TIMER_0_init          
+00000ff5  __aeabi_f2iz                    
+00000ff5  __fixsfsi                       
+0000102d  SYSCFG_DL_init                  
+00001061  LED_Flash                       
+00001091  fputc                           
+000010bd  _c_int00_noargs                 
+000010e5  memccpy                         
+00001109  DL_UART_transmitDataBlocking    
+00001129  DL_Timer_setCaptCompUpdateMethod
+00001145  DL_Timer_setClockConfig         
+00001161  SYSCFG_DL_SYSTICK_init          
+0000117d  DL_Timer_setCaptureCompareOutCtl
+00001195  __TI_zero_init_nomemset         
+000011ab  DL_UART_setClockConfig          
+000011bd  __TI_decompress_none            
+000011d1  DL_Timer_setCaptureCompareValue 
+000011e1  __aeabi_memset                  
+000011e1  __aeabi_memset4                 
+000011e1  __aeabi_memset8                 
+000011fd  DL_Common_delayCycles           
+00001209  __aeabi_memcpy                  
+00001209  __aeabi_memcpy4                 
+00001209  __aeabi_memcpy8                 
+00001221  Reset_Handler                   
+00001225  _system_pre_init                
+00001228  C$$EXIT                         
+00001229  abort                           
+000012b0  __TI_Handler_Table_Base         
+000012bc  __TI_Handler_Table_Limit        
+000012c4  __TI_CINIT_Base                 
+000012d4  __TI_CINIT_Limit                
+000012d4  __TI_CINIT_Warm                 
+20200000  __start___llvm_prf_bits         
+20200000  __start___llvm_prf_cnts         
+20200000  __stop___llvm_prf_bits          
+20200000  __stop___llvm_prf_cnts          
+20200000  gPWM_0Backup                    
+202000bc  gTIMER_0Backup                  
+20200188  Get_Encoder_countA              
+2020018c  Get_Encoder_countB              
+20200190  PWMA                            
+20200194  PWMB                            
+20200198  encoderA_cnt                    
+2020019c  encoderB_cnt                    
+202001a0  gpio_interrup                   
+202001a8  _ftable                         
+20200298  recv0_buff                      
+20200318  Velcity_Ki                      
+2020031c  Velcity_Kp                      
+20200320  _lock                           
+20200324  _unlock                         
+20200328  recv0_length                    
+2020032a  recv0_flag                      
+20207e00  __stack                         
+20208000  __STACK_END                     
+ffffffff  __TI_pprof_out_hndl             
+ffffffff  __TI_prof_data_size             
+ffffffff  __TI_prof_data_start            
+ffffffff  __binit__                       
+ffffffff  binit                           
+UNDEFED   __mpu_init                      
+UNDEFED   _system_post_cinit              
+
+[138 symbols]
