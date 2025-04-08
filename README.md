@@ -1,41 +1,59 @@
-## Example Summary
+# 自动导航小车控制系统
 
-Empty project using DriverLib.
-This example shows a basic empty project using DriverLib with just main file
-and SysConfig initialization.
+## 项目概述
+本项目是为电子设计竞赛开发的自动导航小车控制系统源代码，基于TI MSPM0G3507微控制器开发。系统实现了小车的自动导航、路径识别、姿态控制和运动控制等功能。
 
-## Peripherals & Pin Assignments
+## 系统框架
+1. **硬件架构**：
+   - 主控：MSPM0G3507微控制器
+   - 传感器：MPU6050姿态传感器、光电编码器、红外巡线传感器
+   - 执行机构：直流电机驱动模块
+   - 人机交互：OLED显示屏、按键输入
 
-| Peripheral | Pin | Function |
-| --- | --- | --- |
-| SYSCTL |  |  |
-| DEBUGSS | PA20 | Debug Clock |
-| DEBUGSS | PA19 | Debug Data In Out |
+2. **软件架构**：
+   - 主循环状态机控制
+   - 定时器中断处理关键实时任务
+   - 多传感器数据融合
+   - PID闭环控制算法
 
-## BoosterPacks, Board Resources & Jumper Settings
+## 主要功能模块
+1. **传感器模块**：
+   - 使用MPU6050获取姿态数据(ROLL/PITCH/YAW)
+   - 光电编码器测量电机转速
+   - 红外阵列传感器实现巡线功能
 
-Visit [LP_MSPM0G3507](https://www.ti.com/tool/LP-MSPM0G3507) for LaunchPad information, including user guide and hardware files.
+2. **状态机设计**：
+   - 系统通过`mode_set`变量实现多状态切换：
+     - 0: 待机/初始化状态
+     - 1: 基础巡线模式
+     - 2: 高级巡线模式(含角度控制)
+     - 3: 复杂路径模式
+     - 4: 特殊任务模式
 
-| Pin | Peripheral | Function | LaunchPad Pin | LaunchPad Settings |
-| --- | --- | --- | --- | --- |
-| PA20 | DEBUGSS | SWCLK | N/A | <ul><li>PA20 is used by SWD during debugging<br><ul><li>`J101 15:16 ON` Connect to XDS-110 SWCLK while debugging<br><li>`J101 15:16 OFF` Disconnect from XDS-110 SWCLK if using pin in application</ul></ul> |
-| PA19 | DEBUGSS | SWDIO | N/A | <ul><li>PA19 is used by SWD during debugging<br><ul><li>`J101 13:14 ON` Connect to XDS-110 SWDIO while debugging<br><li>`J101 13:14 OFF` Disconnect from XDS-110 SWDIO if using pin in application</ul></ul> |
+3. **控制算法**：
+   - 电机速度PID控制(位置式PID算法)
+   - 转向角度PD控制
+   - 巡线偏差计算与补偿
 
-### Device Migration Recommendations
-This project was developed for a superset device included in the LP_MSPM0G3507 LaunchPad. Please
-visit the [CCS User's Guide](https://software-dl.ti.com/msp430/esd/MSPM0-SDK/latest/docs/english/tools/ccs_ide_guide/doc_guide/doc_guide-srcs/ccs_ide_guide.html#sysconfig-project-migration)
-for information about migrating to other MSPM0 devices.
+## 使用说明
+1. **硬件连接**：
+   - 按照接线说明连接各传感器和执行机构
+   - 确保电源稳定供电
 
-### Low-Power Recommendations
-TI recommends to terminate unused pins by setting the corresponding functions to
-GPIO and configure the pins to output low or input with internal
-pullup/pulldown resistor.
+2. **软件配置**：
+   - 使用CCS开发环境编译下载
+   - 通过按键选择工作模式
+   - OLED显示当前状态和参数
 
-SysConfig allows developers to easily configure unused pins by selecting **Board**→**Configure Unused Pins**.
+3. **参数调整**：
+   - 在`motor.h`中调整PID参数
+   - 在`empty.c`中修改各模式的控制逻辑
 
-For more information about jumper configuration to achieve low-power using the
-MSPM0 LaunchPad, please visit the [LP-MSPM0G3507 User's Guide](https://www.ti.com/lit/slau873).
+## 开发环境
+- 编译器：TI CLANG
+- 开发环境：Code Composer Studio
+- 调试工具：XDS110调试器
 
-## Example Usage
+## 项目成员
+- 开发者：刘承涛，王博彬，吴丰杨
 
-Compile, load and run the example.
